@@ -1,0 +1,26 @@
+﻿src/
+
+risk/
+portfolio/
+trade/
+
+ai/
+├── IAIService
+├── OpenAIService
+├── OllamaService
+├── PromptTemplates
+├── RiskAnalysisService
+├── PortfolioInsightService
+└── TradeCopilotService
+
+
+SELECT percentile_cont(0.95) WITHIN GROUP (ORDER BY completed_at-started_at) FROM ai_job WHERE status='COMPLETED';
+
+Pending Jobs            : X
+Processing Jobs         : Y
+Completed Jobs          : Z
+Failed Jobs             : N
+Average AI Time         : 12.13 sec
+P95 AI Time             : 12.49 sec
+Average Queue Delay     : ?
+Jobs / Hour             : ?
