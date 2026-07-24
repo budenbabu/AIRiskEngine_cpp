@@ -10,7 +10,7 @@ void ApplicationStartup::Run()
 {
     std::size_t noThreads=std::max(4u,std::thread::hardware_concurrency());
     m_thread.reserve(noThreads);
-    for(int i=0;i<noThreads;++i) m_thread.emplace_back([this]{m_ioc.run();});
+    for(size_t i=0;i<noThreads;++i) m_thread.emplace_back([this]{m_ioc.run();});
     m_logger.Info("Application Running ...");
     for(auto& th: m_thread) th.join();
     

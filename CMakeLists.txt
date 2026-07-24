@@ -1,5 +1,5 @@
 cmake_minimum_required(VERSION 3.10.0)
-project(TestBoostDI VERSION 0.1.0 LANGUAGES CXX)
+project(AIRiskEngine_CPP VERSION 0.1.0 LANGUAGES CXX)
 
 set(CMAKE_CXX_STANDARD 20)
 set(CMAKE_CXX_STANDARD_REQUIRED ON)
@@ -36,7 +36,7 @@ if(WIN32)
     add_compile_definitions(_WIN32_WINNT=0x0601)
 endif()
 
-add_executable(TestBoostDI main.cpp
+add_executable(AIRiskEngine_CPP main.cpp
     HttpServer.h
     Listener.h
     Listener.cpp
@@ -243,8 +243,8 @@ add_executable(TestBoostDI main.cpp
     
 
 if(MSVC)
-    target_compile_options(TestBoostDI PRIVATE /bigobj /FS /W4 /WX)
-    target_link_libraries(TestBoostDI PRIVATE pqxx libpq libpgcommon libpgport libecpg libecpg_compat libpgtypes libcrypto libssl secur32 wldap32 ws2_32 crypt32)
+    target_compile_options(AIRiskEngine_CPP PRIVATE /bigobj /FS /W4 /WX)
+    target_link_libraries(AIRiskEngine_CPP PRIVATE pqxx libpq libpgcommon libpgport libecpg libecpg_compat libpgtypes libcrypto libssl secur32 wldap32 ws2_32 crypt32)
 endif()
 
 set(DLL_SOURCE_DIR "${CMAKE_CURRENT_SOURCE_DIR}/lib")
@@ -256,8 +256,8 @@ set(MY_REQUIRED_DLLS
     "${DLL_SOURCE_DIR}/libssl-3-x64.dll" 
 )
 
-add_custom_command(TARGET TestBoostDI POST_BUILD
+add_custom_command(TARGET AIRiskEngine_CPP POST_BUILD
     COMMAND ${CMAKE_COMMAND} -E copy_if_different
     ${MY_REQUIRED_DLLS}
-    $<TARGET_FILE_DIR:TestBoostDI>
+    $<TARGET_FILE_DIR:AIRiskEngine_CPP>
 )
